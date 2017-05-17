@@ -26,7 +26,7 @@ namespace Test
         {
             if (!DataBase.GetProdList().Contains(new_prod_name.Text))
             {
-                DataBase.Insert(string.Join(",", string.Join(null, "\'", new_prod_name.Text, "\'"), new_prod_cal.Text, new_prod_prot.Text, new_prod_fat.Text, new_prod_hyd.Text));
+                DataBase.InsertProduct(string.Join(",", string.Join(null, "\'", new_prod_name.Text, "\'"), new_prod_cal.Text, new_prod_prot.Text, new_prod_fat.Text, new_prod_hyd.Text));
                 parent_form.RefreshProdList();
                 Close();
             }
