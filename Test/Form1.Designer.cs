@@ -51,14 +51,16 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cal_day = new System.Windows.Forms.Label();
-            this.prot_day = new System.Windows.Forms.Label();
-            this.fat_day = new System.Windows.Forms.Label();
             this.carbo_day = new System.Windows.Forms.Label();
+            this.fat_day = new System.Windows.Forms.Label();
+            this.prot_day = new System.Windows.Forms.Label();
+            this.cal_day = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.del_row_ration = new System.Windows.Forms.Button();
+            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -235,7 +237,8 @@
             // продуктыToolStripMenuItem
             // 
             this.продуктыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новыйToolStripMenuItem});
+            this.новыйToolStripMenuItem,
+            this.редактироватьToolStripMenuItem});
             this.продуктыToolStripMenuItem.Name = "продуктыToolStripMenuItem";
             this.продуктыToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.продуктыToolStripMenuItem.Text = "Продукты";
@@ -282,32 +285,37 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Суточное потребление";
             // 
-            // label7
+            // carbo_day
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Калории:";
+            this.carbo_day.AutoSize = true;
+            this.carbo_day.Location = new System.Drawing.Point(86, 93);
+            this.carbo_day.Name = "carbo_day";
+            this.carbo_day.Size = new System.Drawing.Size(0, 13);
+            this.carbo_day.TabIndex = 13;
             // 
-            // label8
+            // fat_day
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 48);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Белки:";
+            this.fat_day.AutoSize = true;
+            this.fat_day.Location = new System.Drawing.Point(86, 71);
+            this.fat_day.Name = "fat_day";
+            this.fat_day.Size = new System.Drawing.Size(0, 13);
+            this.fat_day.TabIndex = 12;
             // 
-            // label9
+            // prot_day
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 71);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Жиры:";
+            this.prot_day.AutoSize = true;
+            this.prot_day.Location = new System.Drawing.Point(86, 48);
+            this.prot_day.Name = "prot_day";
+            this.prot_day.Size = new System.Drawing.Size(0, 13);
+            this.prot_day.TabIndex = 11;
+            // 
+            // cal_day
+            // 
+            this.cal_day.AutoSize = true;
+            this.cal_day.Location = new System.Drawing.Point(83, 27);
+            this.cal_day.Name = "cal_day";
+            this.cal_day.Size = new System.Drawing.Size(0, 13);
+            this.cal_day.TabIndex = 10;
             // 
             // label10
             // 
@@ -318,43 +326,56 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "Углеводы:";
             // 
-            // cal_day
+            // label9
             // 
-            this.cal_day.AutoSize = true;
-            this.cal_day.Location = new System.Drawing.Point(83, 27);
-            this.cal_day.Name = "cal_day";
-            this.cal_day.Size = new System.Drawing.Size(0, 13);
-            this.cal_day.TabIndex = 10;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 71);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Жиры:";
             // 
-            // prot_day
+            // label8
             // 
-            this.prot_day.AutoSize = true;
-            this.prot_day.Location = new System.Drawing.Point(86, 48);
-            this.prot_day.Name = "prot_day";
-            this.prot_day.Size = new System.Drawing.Size(0, 13);
-            this.prot_day.TabIndex = 11;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Белки:";
             // 
-            // fat_day
+            // label7
             // 
-            this.fat_day.AutoSize = true;
-            this.fat_day.Location = new System.Drawing.Point(86, 71);
-            this.fat_day.Name = "fat_day";
-            this.fat_day.Size = new System.Drawing.Size(0, 13);
-            this.fat_day.TabIndex = 12;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Калории:";
             // 
-            // carbo_day
+            // del_row_ration
             // 
-            this.carbo_day.AutoSize = true;
-            this.carbo_day.Location = new System.Drawing.Point(86, 93);
-            this.carbo_day.Name = "carbo_day";
-            this.carbo_day.Size = new System.Drawing.Size(0, 13);
-            this.carbo_day.TabIndex = 13;
+            this.del_row_ration.Location = new System.Drawing.Point(13, 23);
+            this.del_row_ration.Name = "del_row_ration";
+            this.del_row_ration.Size = new System.Drawing.Size(109, 23);
+            this.del_row_ration.TabIndex = 6;
+            this.del_row_ration.Text = "Удалить строки";
+            this.del_row_ration.UseVisualStyleBackColor = true;
+            this.del_row_ration.Click += new System.EventHandler(this.del_row_ration_Click);
+            // 
+            // редактироватьToolStripMenuItem
+            // 
+            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.редактироватьToolStripMenuItem.Text = "Редактировать";
+            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 578);
+            this.Controls.Add(this.del_row_ration);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dataGridView1);
@@ -362,7 +383,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Нутриенты";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -411,5 +432,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button del_row_ration;
+        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
     }
 }

@@ -21,7 +21,7 @@ namespace Test
         {
             List<string> list = new List<string>();
             //connection.Open();
-            SqlCommand command = new SqlCommand("SELECT * FROM products", connection);
+            SqlCommand command = new SqlCommand("SELECT * FROM products WHERE active = 1", connection);
             SqlDataReader answer = command.ExecuteReader();
             while (answer.Read())
             {
@@ -54,7 +54,7 @@ namespace Test
             query = string.Join(null, "select ration.id, products.name as 'Название', ration.value as 'Порция'," +
                 "ration.value * products.caloricity / 100 as 'Калорийность', ration.value * products.protein / 100 as 'Белки'," +
                 "ration.value * products.fat / 100 as 'Жиры', ration.value * products.carbo / 100 as 'Углеводы'" +
-                "from products join ration on products.id = ration.product_id WHERE ration.date = '", date_str, "'");
+                "from products join ration on products.id = ration.product_id WHERE ration.date = '", date_str, "' and ration.active = 1");
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataSet data = new DataSet();
             adapter.Fill(data);
@@ -67,12 +67,18 @@ namespace Test
             command.ExecuteNonQuery();
         }
 
+        static public void DeleteRowRation(string id)
+        {
+            SqlCommand command = new SqlCommand(string.Join(null, "update ration set active = 0 where id = ", id), connection);
+            command.ExecuteNonQuery();
+        }
+
         static public void GetDayStat(string date_str)
         {
             string query;
             query = string.Join(null, "select sum(products.caloricity * ration.value / 100), sum(products.protein * ration.value / 100)," +
                 "sum(products.fat * ration.value / 100), sum(products.carbo * ration.value / 100) from ration join products on ration.product_id = products.id " +
-                "where ration.date = '", date_str, "' group by ration.date");
+                "where ration.date = '", date_str, "' and ration.active = 1 group by ration.date");
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader answer = command.ExecuteReader();
             while (answer.Read())
@@ -95,6 +101,28 @@ namespace Test
         {
             SqlCommand command = new SqlCommand(string.Join(null, "insert into ration(product_id, value, date, active) values ", "(", query, ")"), connection);
             int answer = command.ExecuteNonQuery();
+        }
+
+        static public void UpdateProduct(int id, double cal, double prot, double fat, double carbo)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand command = new SqlCommand("update_product", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@my_id", id);
+            command.Parameters.AddWithValue("@new_cal", cal);
+            command.Parameters.AddWithValue("@new_prot", prot);
+            command.Parameters.AddWithValue("@new_fat", fat);
+            command.Parameters.AddWithValue("@new_carbo", carbo);
+            command.ExecuteNonQuery();
+        }
+
+        static public void DeleteProduct(int id)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand command = new SqlCommand("disactivate_product", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@my_id", id);
+            command.ExecuteNonQuery();
         }
 
         static public void Connect()

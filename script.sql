@@ -8,3 +8,8 @@ CREATE TABLE dbo.products
 GO  
 
 drop table dbo.products
+
+create procedure update_product (@my_id int, @new_cal float, @new_prot float, @new_fat float, @new_carbo float)
+as update products
+set caloricity = @new_cal, protein = @new_prot, fat = @new_fat, carbo = @new_carbo
+where id = @my_id

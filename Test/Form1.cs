@@ -89,6 +89,25 @@ namespace Test
             string id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             string value = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             DataBase.UpdateRation(id, value);
+            CreateRationTable(DataBase.GetRation(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+        }
+
+        private void del_row_ration_Click(object sender, EventArgs e)
+        {
+            string id;
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                id = row.Cells[0].Value.ToString();
+                MessageBox.Show(id.ToString());
+                DataBase.DeleteRowRation(row.Cells[0].Value.ToString());
+                CreateRationTable(DataBase.GetRation(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+            }
+        }
+
+        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Edit_product FormEditProduct = new Edit_product(this);
+            FormEditProduct.Show();
         }
     }
 }
