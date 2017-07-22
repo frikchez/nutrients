@@ -109,5 +109,11 @@ namespace Test
             Edit_product FormEditProduct = new Edit_product(this);
             FormEditProduct.Show();
         }
+
+        private void новыйToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            New_dish FormNewDish = new New_dish(this);
+            FormNewDish.Show();
+        }
     }
 }

@@ -116,6 +116,26 @@ namespace Test
             command.ExecuteNonQuery();
         }
 
+        static public double[] GetProductStat(string name, int weight)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand command = new SqlCommand("get_prod_stat", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@weight", weight);
+            command.Parameters.Add("@cal", SqlDbType.Float).Direction = ParameterDirection.Output;
+            command.Parameters.Add("@prot", SqlDbType.Float).Direction = ParameterDirection.Output;
+            command.Parameters.Add("@fat", SqlDbType.Float).Direction = ParameterDirection.Output;
+            command.Parameters.Add("@carbo", SqlDbType.Float).Direction = ParameterDirection.Output;
+            command.ExecuteNonQuery();
+            double[] res = new double[4];
+            res[0] = Convert.ToDouble(command.Parameters["@cal"].Value);
+            res[1] = Convert.ToDouble(command.Parameters["@prot"].Value);
+            res[2] = Convert.ToDouble(command.Parameters["@fat"].Value);
+            res[3] = Convert.ToDouble(command.Parameters["@carbo"].Value);
+            return res;
+        }
+
         static public void DeleteProduct(int id)
         {
             SqlDataAdapter adapter = new SqlDataAdapter();

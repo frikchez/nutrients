@@ -48,6 +48,7 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.продуктыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -60,7 +61,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.del_row_ration = new System.Windows.Forms.Button();
-            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.создатьКомплексныйПродуктToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -238,7 +239,8 @@
             // 
             this.продуктыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.новыйToolStripMenuItem,
-            this.редактироватьToolStripMenuItem});
+            this.редактироватьToolStripMenuItem,
+            this.создатьКомплексныйПродуктToolStripMenuItem});
             this.продуктыToolStripMenuItem.Name = "продуктыToolStripMenuItem";
             this.продуктыToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.продуктыToolStripMenuItem.Text = "Продукты";
@@ -246,9 +248,16 @@
             // новыйToolStripMenuItem
             // 
             this.новыйToolStripMenuItem.Name = "новыйToolStripMenuItem";
-            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.новыйToolStripMenuItem.Text = "Новый";
             this.новыйToolStripMenuItem.Click += new System.EventHandler(this.новыйToolStripMenuItem_Click);
+            // 
+            // редактироватьToolStripMenuItem
+            // 
+            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.редактироватьToolStripMenuItem.Text = "Редактировать";
+            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -363,12 +372,12 @@
             this.del_row_ration.UseVisualStyleBackColor = true;
             this.del_row_ration.Click += new System.EventHandler(this.del_row_ration_Click);
             // 
-            // редактироватьToolStripMenuItem
+            // создатьКомплексныйПродуктToolStripMenuItem
             // 
-            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.редактироватьToolStripMenuItem.Text = "Редактировать";
-            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
+            this.создатьКомплексныйПродуктToolStripMenuItem.Name = "создатьКомплексныйПродуктToolStripMenuItem";
+            this.создатьКомплексныйПродуктToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.создатьКомплексныйПродуктToolStripMenuItem.Text = "Создать комплексный продукт";
+            this.создатьКомплексныйПродуктToolStripMenuItem.Click += new System.EventHandler(this.новыйToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -434,5 +443,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button del_row_ration;
         private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem создатьКомплексныйПродуктToolStripMenuItem;
     }
 }
